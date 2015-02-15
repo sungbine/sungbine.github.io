@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "was와 웹서버의 차이 – 톰캣과 아파치를 구별하지 못하는 사람을 위해"
-date:   2015-02-14 18:00:00
+date:   2015-02-15 18:00:00
 categories: tech post
 ---
 
