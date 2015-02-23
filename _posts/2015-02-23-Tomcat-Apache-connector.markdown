@@ -26,7 +26,7 @@ Linux CentoOS 6.6, jdk 1.8, Tomcat 8.0, Apache HTTP 웹서버 2.4.9 버전을 �
 이런 명령으로 configure을 하게 된다. 이때 이전 단계에서 apr과 apr-util의 위치를 잘못 지정해 주는 바람에 빌드가 되지 않아 많은 삽질을 햇다.
 
 3. apache build 시 에러2
-  빌드를 준비하는 과정에서  yum install make gcc gcc-c++ autoconf automake libtool pkgconfig findutils 이런 명령어를 인테넷에서 그래도 썼는데 저중 어디선가 제대로 설치가 되지 않아서 자꾸 pcre를 찾을 수 없다는 메세지를 보았다. 하나하나 꼼꼼히 다시 설치해서 해결했다.
+  빌드를 준비하는 과정에서  yum install make gcc gcc-c++ autoconf automake libtool pkgconfig findutils 이런 명령어를 인테넷에서 그래도 썼는데 저중 어디선가 제대로 설치가 되지 않아서 무엇인가 찾을 수 없다는 메세지를 보았다. 하나하나 꼼꼼히 다시 설치해서 해결했다. 그리고 jk_mod를 컴파일하는 과정에서 apxs의 경로를 설정해주는데 이것은 /usr/local/bin 폴더에 pcre라는 파일이 존재하느데, 이곳으로 경로를 지정해줘야 성공적으로 빌드가 된다.
 
 4. tomcat과 apache의 권한 문제...
   이것은 아주 특수한 케이스일 수 있다(우리 사내에서만 해당) su(root를 위임한)계정과 그렇지 않은 계정을 이용해 apache와 tomcat을 설치하게 되는데.. 두개를 모두 su계정으로 설치했더니 tomcat이 동작하지않는 문제가 생겼다. 이것은 어떤 이유인지 정확히 모르겠으나(알아보겟다!!!) tomcat을 su계정이 아닌 계정으로 설치했더니 해결되었다.
