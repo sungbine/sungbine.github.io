@@ -1,11 +1,34 @@
-# Site settings
-title: CLAVER SUNGBIN'S BLOG
-email: sungbin.kim@nhnent.com
-description: 행복하자!!
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username:
-github_username:  sungbine
+title: "blog title"
+author: "Blog Author"
+description: "Really cool blog about ... something"
+#subheading: "Really cool blog about ... something"
+more: "read more"
+url: "http://niklabs.me"
+baseurl: "/contrast" # comment out if in root directory
 
-# Build settings
-markdown: kramdown
+comments:
+    disqus: "niklasbuschmann"
+#    isso: "comments.mysite.org"
+
+style:
+#    body: "whitesmoke"
+    padding: 33%
+    anchor: "#46f"
+    serif-heading: true
+    nav: "#181818"
+#    headline: "#06f"
+    description: "white"
+    article:
+        odd: "#ffffff"
+        even: "#222222"
+
+links:
+  - github: "https://github.com/me/"
+  - twitter: "https://twitter.com/me/"
+  - google-plus: "https://plus.google.com/+me"
+  - reddit: "https://www.reddit.com/user/me/"
+  - youtube: "https://www.youtube.com/user/me"
+  - steam: "http://steamcommunity.com/id/me/"
+
+excerpt_separator: "\n\n\n"
+defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
