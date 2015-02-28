@@ -12,4 +12,3 @@ categories: tech post
 
 - 일반 
 - 6.0.x에서 7.0.x 로 migration하기 
-- 
