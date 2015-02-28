@@ -33,7 +33,7 @@ http://tomcat.apache.org/migration.html 페이지에 내용을 통해 다른 버
   * RemoteIpFilter, RemoteIpValve 의 internalProxies와 trustedProxies 어트리뷰트들
   * ReplicationValve의 filter 어트리뷰트
   * HTTP connectos의 restrictedUserAgents, noCompressionUserAgents 어트리뷰트들
-* 분리된 여러 정규식을 하나로 합치는 방법은 "|" 연산자(or)를 이용하는 것이다. "|"연산자는 Tomcat이전버전과도 호환한다.
+* 분리된 여러 정규식을 하나로 합치는 방법은 "\|" 연산자(or)를 이용하는 것이다. "\|"연산자는 Tomcat이전버전과도 호환한다.
 
 ### 배포(Deployemnt)
 * XML 컨텍스트 기술파일(META-INF/context.xml)은 더이상 배포된 WAR와 디렉토리에서 호스트의 xmlBase로 복사되지 않는다. Tomcat6과 같이 복사하기 위해서는 Host 요소의 copyXML 속성을 true로 셋팅이 필요하다.
