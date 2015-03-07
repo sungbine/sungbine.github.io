@@ -120,5 +120,11 @@ metadata-complete 속성은 Servlet 2.5 스펙부터 지원하기 시작했다. 
 두 번째 방법은 JarScanner 컴포넌트가 특정 JAR파일(이름에따라)을 무시하도록 설정하는것이다. 이것은 보통 conf/catalina.properties파일에서 설정한다. [System properties](http://tomcat.apache.org/tomcat-7.0-doc/config/systemprops.html)챕터의 jarsToSkip을 확인하라. Tomcat 7.0.30을 시작으로 Servlet 3.0에서 JARs 스캐닝(annotation과 웹어플리케이션 fragment)과 TLD 스캐닝(tag 라이브러리들)에서 분리시켜서 스킵하는 설정하는것이 가능하다. 톰캣의 이후 버전은 더욱 나은 방법을 제공할 것이다.
 
 ### TLD 처리
+TLD처리에서 많은 향상이 있었다. 게다가 일관성을 향상하고 중복을 제거하기 위해 내부적인 리펙토링을 했고, 많은 기능적인 향상이 있었다.
+* 이제는 태그 파일의 EL 처리가 태그파일에 선언된 JSP 버전과 일괄성이 있게 되었다.
+* JSP 스펙의 JSP 7.3.1의 요구사항이 이제는 강요된다. 그리고 TLD파일들은 WEB-INF/lib 나 WEB-INF/classes 위치에 존재하는것이 허용되지 않는다.
 
- 
+### 내부 API들(Internal APIs)
+
+
+### JSP 컴파일러
