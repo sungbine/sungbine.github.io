@@ -14,9 +14,9 @@ categories: tech post
 위의 링크에 따르면 Spring의 기본 property editor가 ','를 포함한 스트링에 대해 배열로 처리하게 되어있다. 
 
 리퀘스트가 들어오면 3가지 과정으로 동작한다.
-1. 파라미터 타입의 오브젝트 생성
-2. 웹파라미터 바인딩
-3. validation
+1. 파라미터 타입의 오브젝트 생성<br/>
+2. 웹파라미터 바인딩<br/>
+3. validation<br/>
 
 세개의 과정을 거치는중 binding하는 과정이 있다. 이 때 프로젝에서 별도의 binder를 지정해주지않았기 때문에 Spring의 기본 property eiditor를 사용했고, 원하지 않은 방법으로 바인딩이 이루어졌던 것이다.
 이를 해결하기 위해 별도의 binder를 지정해 주므로서 해결이 가능하다. 
