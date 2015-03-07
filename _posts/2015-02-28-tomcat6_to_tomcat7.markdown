@@ -145,5 +145,5 @@ Apache Tomcat 의 인스턴스를 7의 한버전에서 7의 다른 버전으로 
 
 
 
-# 원본
-[아파치 톰캣](http://tomcat.apache.org/migration-7.html)
+# 기타
+원본 - [아파치 톰캣](http://tomcat.apache.org/migration-7.html)
