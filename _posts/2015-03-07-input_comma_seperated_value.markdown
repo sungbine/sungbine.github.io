@@ -25,3 +25,5 @@ categories: tech post
 
 이 관련된 것을 조사하는중 url파라미터와 modelAttriubte 가 처리되는 handler의 차이가 있다는 것을 알게 되었고 이다음에 이부분에 집중 분석해 봐야할 필요성을 느꼈다.
 
+
+[참고-Rednics Blog(http://springsource.tistory.com/15)](http://springsource.tistory.com/15)
