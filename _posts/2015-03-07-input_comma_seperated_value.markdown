@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "html input 태그의 콤마가 포함된 String의 spring에서의 바인딩"
+title:  "HTML INPUT 태그의 콤마가 포함된 STRING의 SPRING에서의 파라미터 바인딩"
 date:   2015-03-07 15:00:00
 categories: tech post
 ---
