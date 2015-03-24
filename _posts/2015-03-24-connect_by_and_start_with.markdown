@@ -35,13 +35,13 @@ START WITH 구문은 계층화된 구조의 루트노드를 지정하기 위해 
 CONNECT BY PRIOR절은 부모와 자식노드간의 관계를 설정하기 위해 사용되었다. 특히 PRIOR 은 upper\_id가 아닌 id앞에 붙어야한다.  부모노드의 id와 현재 노드의 upper\_id간의 관계설정을 위해 부모 노드의 id에 PRIOR 을 지정해야한다.
 
 또한 특정 조건의 열에대해서 필터링을 위해서는 FROM과 START WITH사이에 WHERE 절을 삽입 할 수있다.
-</br>
-```sql</br>
-SELECT name </br>
-  FROM mydb</br>
- WHERE id = '1'</br>
-START WITH upperId = '0'</br>
-CONNECT BY PRIOR id = upper_id</br>
+<br/>
+```sql<br/>
+SELECT name <br/>
+  FROM mydb<br/>
+ WHERE id = '1'<br/>
+START WITH upperId = '0'<br/>
+CONNECT BY PRIOR id = upper_id<br/>
 ```
 
 위와 같은 절이 가능하다. 절의 실행 순서는 START WITH -> CONNECT BY PRIOR -> WHERE 임을 유의해야한다.
@@ -53,5 +53,5 @@ CONNECT BY PRIOR id = upper_id</br>
 LEVEL이라는 컬럼으로 실제 TREE 구조에서의 level을 의미하며 깊이를 알 수있어 유용하게 활용 할 수있다.
 
 참고 : 
-[creative_KIM](http://egloos.zum.com/crekim/v/2955373)</br>
+[creative_KIM](http://egloos.zum.com/crekim/v/2955373)<br/>
 [자바킹](http://javaking75.blog.me/220010605201)
