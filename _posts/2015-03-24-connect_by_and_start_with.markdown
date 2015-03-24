@@ -23,7 +23,7 @@ CONNECT BY와 SATRT WITH 문이 그것이다. 이 구문은 ORACLE DB에 존재�
 자동차가 바퀴를 포함하고 바퀴는 고무를 포함하는 관계를 하나의 DB로 표현하면 이러한 식으로 표현이 가능하다. (이러한 구조를 순환관계 테이블이라고도 부른다.)
 
 위 순환관계 테이블에서고무를 조회할때 고무가 포함되는 상위 카테고리를 알고 싶을때, CONNECT BY와 START WITH를 사용하면 효과적으로 조회할 수있다.
-```
+```sql
 SELECT name 
   FROM mydb
 START WITH upperId = 0
@@ -36,7 +36,7 @@ CONNECT BY PRIOR절은 부모와 자식노드간의 관계를 설정하기 위�
 
 또한 특정 조건의 열에대해서 필터링을 위해서는 FROM과 START WITH사이에 WHERE 절을 삽입 할 수있다.
 
-```
+```sql
 SELECT name 
   FROM mydb
  WHERE id = '1'
