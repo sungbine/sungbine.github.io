@@ -51,3 +51,7 @@ CONNECT BY PRIOR id = upper_id
 
 그리고 한가지 유용한 가상의 컬럼이 존재한다. 
 LEVEL이라는 컬럼으로 실제 TREE 구조에서의 level을 의미하며 깊이를 알 수있어 유용하게 활용 할 수있다.
+
+참고 : 
+[creative_KIM](http://egloos.zum.com/crekim/v/2955373)
+[자바킹](http://javaking75.blog.me/220010605201)
