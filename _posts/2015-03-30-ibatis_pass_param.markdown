@@ -11,18 +11,18 @@ ibatis로 개발을 하는중에 controller에서 넘어오는 값이 '$'로 감
 
 예를 들어
 
-{% highlight sql %}SELECT * FROM table1 WHERE col1 = '$whereClaus$';{% highlight%}
+{% highlight sql %}SELECT * FROM table1 WHERE col1 = '$whereClaus$';{% endhighlight%}
 
 이라는 쿼리를  mapper에 작성했다고 가정하자. 그리고 whereCond라는 변수(맵객체의 키가 whereCond인 경우 포함)에 "kim" 이라는 문자열이 들어있다면, 위의 쿼리는 
 
-{% highlight sql %}SELECT * FROM table1 WHERE col1 = 'kim' {% highlight %}
+{% highlight sql %}SELECT * FROM table1 WHERE col1 = 'kim' {% endhighlight %}
 
 이라는 쿼리가 완성되어 실행될 것이다.
 
 
 ### #value#는 값만 넘겨준다.
 
-{% highlight sql %}SELECT * FROM table1 WHERE col1 = #whereClaus#;{% highlight %}
+{% highlight sql %}SELECT * FROM table1 WHERE col1 = #whereClaus#;{% endhighlight %}
 
 맵퍼에 이런 쿼리가 존재한다. 그리고 whereClaus에 "kim"이라는 문자열이 들어있다면
 결과적으로 실행되는 쿼리는 위의 1에서와 같은 결과를 실행하게 된다. 그렇다면 차이점은?
