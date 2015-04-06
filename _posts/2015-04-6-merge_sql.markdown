@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "ORACLE의 MERGE SQL"
+date:   2015-04-06 20:20:00
+categories: tech post
+---
+
+오라클 기반의 서비스를 운영하는 중 큐브리드나 MySql에서 보지 못한 문법을 발견하게되었다. 그래서 한번 찾아보고 사용법에 대해 정리해 보았다.
+
+
+Merge SQL2003에서 표준 SQL로 도입된 구문이다. 그래서 Oracle Database, DB2, Miscrosoft SQL Server, Firebird에서 적용되었다.
+
+
+ {% highlight sql %}
+ MERGE INTO 컬럼 | 테이블 USING 서브 테이블 ON (조건)
+   WHEN MATCHED THEN
+     UPDATE SET 컬럼1 = 값1 [, 컬럼2 = 값2 ...]
+   WHEN NOT MATCHED THEN
+     INSERT (컬럼1 [, 컬럼2 ...]) VALUES (값1 [, 값2 ...])
+     {% endhighlight%}
+     
+와 같은 형태의 SLQ문이 쓰이게 되고, 조건에 따라서 insert문과 update문이 실행되는 SQL문이다.
+
+만약 위 구문을 쓰지 않게 되면 select -> 조건비교 -> update or insert와 같은 과정을 직접 구현해야하는 불편함이 있다.
+
+위 구문만으로 조건에 따라 insert or update를 한번에 처리할 수있다. 하지만 현재 CUBRID에는 적용되지않아 위 과정을 직접 응용단에서 구현해야한다.
+
+효과적으로 사용하기 위해서 '컬럼| 테이블'란에 Oracle의 더미 테이블로 사용할 수 있는 DUAL을 쓰게 된다면 테이블의 조인이 아닌 하나의 테이블의 값 비교로 간편한 구현이 가능하다.
+ {% highlight sql %}
+MERGE INTO 타켓테이블
+USING DUAL
+ON ( 조건 )
+WHEN MATCHED THEN
+UPDATE SET
+..
+WHEN NOT MATCHED THEN
+INSERT ( 컬럼1, 컬럼2, .. )
+VALUES ( VALUE1, VALUES2, .. )
+{% endhighlight%}
+
+와같이 사용하면 편리하다.
+
+
+
