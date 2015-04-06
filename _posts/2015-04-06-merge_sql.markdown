@@ -22,10 +22,8 @@ Merge SQL2003에서 표준 SQL로 도입된 구문이다. 그래서 Oracle Datab
 와 같은 형태의 SLQ문이 쓰이게 되고, 조건에 따라서 insert문과 update문이 실행되는 SQL문이다.
 
 만약 위 구문을 쓰지 않게 되면 select -> 조건비교 -> update or insert와 같은 과정을 직접 구현해야하는 불편함이 있다.
-
 위 구문만으로 조건에 따라 insert or update를 한번에 처리할 수있다. 하지만 현재 CUBRID에는 적용되지않아 위 과정을 직접 응용단에서 구현해야한다.
-
-효과적으로 사용하기 위해서 '컬럼| 테이블'란에 Oracle의 더미 테이블로 사용할 수 있는 DUAL을 쓰게 된다면 테이블의 조인이 아닌 하나의 테이블의 값 비교로 간편한 구현이 가능하다.
+효과적으로 사용하기 위해서 '컬럼 \| 테이블'란에 Oracle의 더미 테이블로 사용할 수 있는 DUAL을 쓰게 된다면 테이블의 조인이 아닌 하나의 테이블의 값 비교로 간편한 구현이 가능하다.
  {% highlight sql %}
 MERGE INTO 타켓테이블 USING DUAL ON ( 조건 )
   WHEN MATCHED THEN
