@@ -27,15 +27,13 @@ Merge SQL2003에서 표준 SQL로 도입된 구문이다. 그래서 Oracle Datab
 
 효과적으로 사용하기 위해서 '컬럼| 테이블'란에 Oracle의 더미 테이블로 사용할 수 있는 DUAL을 쓰게 된다면 테이블의 조인이 아닌 하나의 테이블의 값 비교로 간편한 구현이 가능하다.
  {% highlight sql %}
-MERGE INTO 타켓테이블
-USING DUAL
-ON ( 조건 )
-WHEN MATCHED THEN
-UPDATE SET
-..
-WHEN NOT MATCHED THEN
-INSERT ( 컬럼1, 컬럼2, .. )
-VALUES ( VALUE1, VALUES2, .. )
+MERGE INTO 타켓테이블 USING DUAL ON ( 조건 )
+  WHEN MATCHED THEN
+    UPDATE SET
+    ..
+  WHEN NOT MATCHED THEN
+    INSERT ( 컬럼1, 컬럼2, .. )
+    VALUES ( VALUE1, VALUES2, .. )
 {% endhighlight%}
 
 와같이 사용하면 편리하다.
