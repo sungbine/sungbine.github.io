@@ -8,7 +8,7 @@ categories: tech post
 code school(https://www.codeschool.com/paths/javascript#angular-js)로 AngularJS를 공부한 내용을 정리해 본다.
 
 
-# 준비단계!
+# 준비!
 ## 반드시 알아야하는것
 1. HTML & CSS
 2. JavaScript
@@ -22,3 +22,21 @@ code school(https://www.codeschool.com/paths/javascript#angular-js)로 AngularJS
 
 ### 전통적인 website
 ![전통적인 Web request/response](/assets/angular1.png)
+최초 사용자의 요청에 대해 html을 response해준다.
+두번째 요청에 대해서도 데이터와 함께 html을 response한다.
+
+### Angular를 이용한 website
+![Angular Web request/response](/assets/angular2.png)
+최초 사용자의 요청에 대해 html을 response한다.
+두번째 요청에 대해서는 데이터만 json으로 response한다.
+
+두가지를 비교해보면 angular 를 이용한 반응형 web을 구현할 경우 훨씬 효율적인 구현이 가능한다.
+
+
+## 필요한 것
+1. Twitter Bootstrap css
+2. AngularJS libary
+
+이파일이 html에 import되면 angularJS의 시작준비는끝이 난다.
+
+TO BE CONTINUE...
