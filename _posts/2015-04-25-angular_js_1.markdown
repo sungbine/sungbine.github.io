@@ -1,1 +1,24 @@
+---
+layout: post
+title:  "AngularJs Study(1)"
+date:   2015-04-25 17:53:00
+categories: tech post
+---
 
+code school(https://www.codeschool.com/paths/javascript#angular-js)로 AngularJS를 공부한 내용을 정리해 본다.
+
+
+# 준비단계!
+## 반드시 알아야하는것
+1. HTML & CSS
+2. JavaScript
+위 두가지를 모르면 개발할 수없다.
+
+## Angulr를 쓰는 이유? - Dynamic Web을 만드는데 큰 도움이 된다.
+1. JavaScript 코드 정리에 도움이 된다.
+2. 빠른 반응형 웹사이트를 만드는데 도움이 된다.
+3. jQuery와 잘 호환한다.
+4. test가 편하다.
+
+### 전통적인 website
+({{ site.url }}/assets/angular.png)
