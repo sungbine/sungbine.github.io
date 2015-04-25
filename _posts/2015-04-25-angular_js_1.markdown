@@ -39,4 +39,6 @@ code school(https://www.codeschool.com/paths/javascript#angular-js)로 AngularJS
 
 이파일이 html에 import되면 angularJS의 시작준비는끝이 난다.
 
+다음 시간에는 본격적으로 module을 만들고 controller를 이용해 html가 angularJS를 어떻게 include하는지에 대해 알아보겠다
+
 TO BE CONTINUE...
