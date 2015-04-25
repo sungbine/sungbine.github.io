@@ -21,4 +21,4 @@ code school(https://www.codeschool.com/paths/javascript#angular-js)로 AngularJS
 4. test가 편하다.
 
 ### 전통적인 website
-[전통적인 Web request/response]({{ site.url }}/assets/angular1.png)
+![전통적인 Web request/response]({{ site.url }}/assets/angular1.png)
