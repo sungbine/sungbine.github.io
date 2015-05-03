@@ -10,13 +10,16 @@ categories: tech post
 이전 시간에 AngularJS의 기본개념과 사용이유 등 간단한 정보에 대해 공부했다면 이제는 실제로 웹페이지에 어떻게 적용되는지 알아보도록 하겠다.
 
 angularjs에서 중요한 개념이 4가지가 존재한다.
+
 1. Directives
-1. Modules
-1. Controllers
-1. Expressions
+
+2. Modules
+
+3. Controllers
+
+4. Expressions
 
 
-## 모듈 만들기
 AngularJS는 module단위로 구현되고 사용이된다. html에서 모듈을 등록하고 동작하게 할 수있고 다른 모듈에서 또다른 모듈을 사용할 수있어, 확장성과 유지 보수성이 높다고 할 수있다.
 
 app.js라는 스크립트에서 
