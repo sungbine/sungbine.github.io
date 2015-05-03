@@ -57,11 +57,11 @@ something 이라는 이름의 모듈이 생성된다. (something은 모듈이름
 그리고 Directive가 선언된 html의 요소(tag)에서는 아래와 같은 expression이 가능하다.
 {% highlight html %} 
 <p>
-  2 + 4 = {{ 2+4 }}
-  {{ "Hello" + " sungbin" }}
+  2 + 4 = \{\{ 2+4 \}\}
+  \{\{ "Hello" + " sungbin" \}\}
 </p>
 {% endhighlight %}
-이렇게 표현하면 '{{','}}' 로 둘러싸인 수식이 angular가 해석하고 원하는 값을 지정해 준다. 위 같으 코드의 결과는
+이렇게 표현하면 '\{\{','\}\}' 로 둘러싸인 수식이 angular가 해석하고 원하는 값을 지정해 준다. 위 같으 코드의 결과는
 
 2 + 4 = 6
 Hello sungbin
