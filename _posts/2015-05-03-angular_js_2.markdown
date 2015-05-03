@@ -15,6 +15,7 @@ angularjs에서 중요한 개념이 4가지가 존재한다.
 1. Controllers
 1. Expressions
 
+
 ## 모듈 만들기
 AngularJS는 module단위로 구현되고 사용이된다. html에서 모듈을 등록하고 동작하게 할 수있고 다른 모듈에서 또다른 모듈을 사용할 수있어, 확장성과 유지 보수성이 높다고 할 수있다.
 
@@ -22,12 +23,12 @@ app.js라는 스크립트에서
 
 {% highlight javascript %} 
 var app = angular.module('something', []);
-{% endhighlight%}
+{% endhighlight %}
 
 app이라는 변수를 선언하고 anuglar 모듈을 생성 할수 있다.
 something 이라는 이름의 모듈이 생성된다. (something은 모듈이름이 되고, 뒤에 []는 이 모듈에 사용될 라이브러리 의존성이 배열로 나열된다)
 
-'''
+{% highlight html %} 
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,13 +39,31 @@ something 이라는 이름의 모듈이 생성된다. (something은 모듈이름
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
-'''
+{% endhighlight %}
 
 일단 위에서 생성한 모듈을 html에서 import한다.
 그리고 html tag에서 
-'''
+{% highlight html %} 
 <html ng-app="something"> 
-'''
+{% endhighlight %}
 라고 수정하하자. 그러면 html 도큐먼트가 로드될때, 이 angular app이 함께 실행 된다.
 
 
+위에서 생성한 것이 Module이고, 이 모듈을 html에게 명시한 ng-app 이 Directive이다.
+
+그리고 Directive가 선언된 html의 요소(tag)에서는 아래와 같은 expression이 가능하다.
+{% highlight html %} 
+<p>
+  2 + 4 = {{ 2+4 }}
+  {{ "Hello" + " sungbin" }}
+</p>
+{% endhighlight %}
+이렇게 표현하면 '{{','}}' 로 둘러싸인 수식이 angular가 해석하고 원하는 값을 지정해 준다. 위 같으 코드의 결과는
+
+2 + 4 = 6
+Hello sungbin
+
+이 출력된다.
+
+지금까지 directive를 이용해 html에게 angular를 선언하고 생성된 모듈을 html에 주입해 보았다.
+다음시간에는 controller에 대해 공부해 보도록하겠다.
