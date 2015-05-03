@@ -5,4 +5,45 @@ date:   2015-05-03 23:27:00
 categories: tech post
 ---
 
-# 이내용은 codeschool(http://codeschool.com) 내용에 따라 공부하면서 정리한 글입니다.
+# 이내용은 codeschool(http://codeschool.com) 내용에 따라 공부하면서 정리한 글입니다. (전문가가 아니기 때문에 깊이있는 지식이아닙니다. 또한 잘못된 정보가 있을 수 있으니 잘못된 정보는 댓글로 알려주시면 수정해 나가도록 하겠습니다.)
+
+이전 시간에 AngularJS의 기본개념과 사용이유 등 간단한 정보에 대해 공부했다면 이제는 실제로 웹페이지에 어떻게 적용되는지 알아보도록 하겠다.
+
+angularjs에서 중요한 개념이 4가지가 존재한다.
+1. Directives
+2. Modules
+3. Controllers
+4. Expressions
+
+## 모듈 만들기
+AngularJS는 module단위로 구현되고 사용이된다. html에서 모듈을 등록하고 동작하게 할 수있고 다른 모듈에서 또다른 모듈을 사용할 수있어, 확장성과 유지 보수성이 높다고 할 수있다.
+
+app.js라는 스크립트에서 
+
+'''
+var app = angular.module('something', [])
+'''
+app이라는 변수를 선언하고 anuglar 모듈을 생성 할수 있다.
+something 이라는 이름의 모듈이 생성된다. (something은 모듈이름이 되고, 뒤에 []는 이 모듈에 사용될 라이브러리 의존성이 배열로 나열된다)
+
+'''
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  </haed>
+  <body>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </body>
+</html>
+'''
+
+일단 위에서 생성한 모듈을 html에서 import한다.
+그리고 html tag에서 
+'''
+<html ng-app="something"> 
+'''
+라고 수정하하자. 그러면 html 도큐먼트가 로드될때, 이 angular app이 함께 실행 된다.
+
+
