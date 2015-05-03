@@ -25,7 +25,6 @@ style:
         even: "#222222"
 
 markdown:    kramdown
-highlighter: rouge
 excerpt_separator: "\n\n\n"
 defaults: [{scope: {path: ""}, values: {layout: "default"}}, {scope: {path: "", type: "posts"}, values: {comments: true}}]
 
