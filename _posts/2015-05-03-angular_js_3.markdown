@@ -1,1 +1,164 @@
+---
+layout: post
+title:  "AngularJS 공부하기(3)"
+date:   2015-05-11 22:08:00
+categories: tech post
+---
 
+지난 시간에는 AngularJs의 주요 개념 4가지에 대해 살펴보았고, HTML문서에서 어떻게 Angular를 불러오는지에 대해 공부 하였다. 
+
+이번시간에는 Controller에 대해 공부하도록 하겠다.
+
+# Controller란?
+컨트롤러란 App이 실제로 행동하는 행동을 Function으로 구현한 것을 말한다.
+
+~~~
+(function(){
+	var app = angular.module('myapp', [ ]);
+	app.controller('SomeController', function() { 
+		~~~~~~~~~~~~~~ 
+	});
+})();
+~~~
+
+위와 같은 코드가 실행되면, app이라는 angularJs의 module에 'SomeController' 라는이름의 컨트롤러가 삽입되게 되고, 그 행동은 function()으로 구현된다.
+
+
+예를 들어보겠다.
+
+~~~
+(function(){
+	var app = angular.module('myapp', [ ]);
+	app.controller('SomeController', function() { 
+		this.sampleData = { 
+			name : 'sungbin'
+			age : 20
+			description : 'genius'
+		}
+	});
+})();
+~~~
+
+위 코드 컨트롤러를 생성하였다고 한다면 이것을 HTML에서는 아래처럼 사용할 수잇다.
+
+~~~html
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+	</head>
+	<body>
+		<div ng-controller="SomeController as con">
+			<h1> Name = {{con.sampleData.name}}</h1>
+			<h2> Age = {{con.sampleData.age}} </h2>
+			<p> Description = {{con.sampleData.description}} </p>
+		</div>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
+~~~
+
+이렇게 사용하면 '{{'과 '}}'로 둘러싸인 expression을 해석한 angular가 원하는 결과를 보여줄 것이다.
+
+
+
+여기서 주의해야할 점은 div에서 선언된 controller이기 때문에 div 밖에서 위와같은 expression을 사용할 수 없다. 오로지 div내에서만 controller가 유효하다.
+
+## Dynamic Web을위한 Tip1
+web페이지를 작성하다보면 동적이나 어떤 요소가 보이거나 보이지 않아야하는 경우가 자주 발생한다.
+기존에 어떤 버튼이 어떤 js의 Data에 따라 보이거나 혹은 보이지 않게 하기 위해 jQuery의 .show()와 .hide() 함수를 사용했다. 
+AngularJS에서는 더 욱 직관적인 방법을 제공하고 있다. 
+위 sampleData를 아래처럼 바꾸어 보겠다.
+
+~~~
+(function(){
+	var app = angular.module('myapp', [ ]);
+	app.controller('SomeController', function() { 
+		this.sampleData = { 
+			name : 'sungbin'
+			age : 20
+			description : 'genius'
+			visible : true
+		}
+	});
+})();
+~~~
+
+
+controller의 스코프 범위에서 
+`<button ng-show="sampleData.visible">NewButton</button>`
+이처럼 ng-show directive를 이용하면 직관적이고 손쉽게 동적으로 show/hide되는 버튼을 제작할 수있다. 이밖에도 ng-hide(ng-show와 true,false 옵션이 반대)가 존재하며 button 뿐만아니라 \<div>,\<p> 처럼 다은 HTML tag에서도 사용이 가능하기 때문에 활용도 놉다고 할 수 있다.
+
+## Dynamic Web을위한 한가지 Tip2
+Controller의 Data가 여러개일 경우 Array를 이용할 수도 있다. 
+
+~~~
+		this.sampleArray = [{ 
+			name : 'sungbin'
+			age : 20
+			description : 'genius'
+			visible : true
+		},
+		{ 
+			name : 'boing'
+			age : 20
+			description : 'pretty'
+			visible : true
+		}]
+
+~~~
+
+이때는 `sampleArray[0].name`처럼 사용하면 된다.
+그리고  
+
+~~~html
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+	</head>
+	<body ng-controller="SomeController as con">
+		<div>
+			<h1> Name = {{con.sampleArray[0].name}}</h1>
+			<h2> Age = {{con.sampleArray[0].age}} </h2>
+			<p> Description = {{con.sampleArray[0].description}} </p>
+		</div>
+		<div>
+			<h1> Name = {{con.sampleArray[1].name}}</h1>
+			<h2> Age = {{con.sampleArray[1].age}} </h2>
+			<p> Description = {{con.sampleArray[1].description}} </p>
+		</div>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
+~~~
+
+보통은 이렇게 사용할 수있지만.... 효율적이지 않다. AngularJS는 더욱 효율적이고 강력한 Directive를 제공한다.
+그것은 바로! ng-repeat 이다. 
+위 코드를
+
+~~~html
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+	</head>
+	<body ng-controller="SomeController as con">
+		<div ng-repeat="obj in con.sampleArray">
+			<h1> Name = {{obj.sampleArray.name}} </h1>
+			<h2> Age = {{obj.sampleArray.age}} </h2>
+			<p> Description = {{obj.sampleArray.description}} </p>
+		</div>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
+~~~
+
+이처럼 바꾸면 더 효율적인 개발이 가능하다.
+
+오늘은 controller를 활용하는 기본방법과 활용법에 대해 공부해 보았다.
+
+To be continue...
