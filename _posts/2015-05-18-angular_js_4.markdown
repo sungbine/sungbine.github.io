@@ -1,0 +1,80 @@
+---
+layout: post
+title:  "AngularJS 공부하기 - 다양한 Directives & Filter"
+date:   2015-05-18 21:48:00
+categories: tech post
+---
+
+지난시간에는 컨트롤러의 데이터를 HTML 문서에서 보여줄 수있는 Expression에 대해 공부했습니다.
+또한 ng-show, ng-hide, ng-repeat와 같은 directive에 대해 공부했습니다.
+오늘은 더욱 다양한 directive와 filter에 대해 고부해 보도록 하겠습니다.
+
+# Directives #
+지금까지 배운 Directives 는
+
+1. ng-app (HTML페이지에 angular App을 인식시킴)
+2. ng-controller (HTML페이지에 컨트롤러를 인식시킴)
+3. ng-show (해당 요소를 보일지를 결정)
+4. ng-hide (해당 요소를 안보일지르 결정)
+5. ng-repeat (Array의 각각의 item을 순회)
+
+이상 5가지 입니다.
+
+새롭게 추가된 directive는 ng-src 입니다.
+
+~~~
+var items = [
+	{ name: 'Dodecahedron Gem',
+	 price: 2.95,
+	description: '. . .',
+	images: [
+		{
+			full: 'dodecahedron-01-full.jpg',
+			thumb: 'dodecahedron-01-thumb.jpg'
+		},
+		{
+			full: "dodecahedron-02-full.jpg",
+...
+~~~
+
+위처럼 만약 object에 이미지 주소가 들어있을때 쓰이는 directive가 바로 ng-src 입니다. 
+
+```
+<img src="~~~"></img>
+```
+
+와 같은 코드는 자주 보셨을 것입니다. 만약 여기에
+
+```
+<img src="{{items[0].images[0]}}"></img>
+``` 
+
+처럼 작성하면 동작하지 않습니다. 이럴때는
+
+```
+<img ng-src="{{items[0].images[0]}}"></img>
+``` 
+
+로 작성해주어야 합니다.
+
+#Filter#
+이번에 배워볼 것은 Filter 입니다.
+
+"$100" 을 표현하기위해서는  `${{item.price}}` 처럼 표현식을 사용해야한다.
+그런데 "$100.00"을 표현하려면 어떻게 해야할까?
+이럴때 사용하는 것이 바로 filter이다. 
+
+`{{item.price | currency}}` 이렇게 '|'와 뒤에 filter명을 써주면 원하는 format으로 만들어 출력해준다.
+
+이밖에 filter는 
+
+1. date - `{{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}}` : 12/27/2013 @ 12:50AM
+2. uppercase & lowercase `{{'octagon gem' | uppercase}}` : OCTAGON GEM
+3. limitTo - `{{'My Description' | limitTo:8}}` : My Descr
+4. orderBy - `<li ng-repeat="product in store.products | orderBy:'-price'">` : price의 순서대로 정렬해서보여준다(- 가 붙으면 내림차순, 없으면 오름차순)
+
+
+가 존재한다. 이밖의 filter는 다음에 다시 정리해 보도록 하겠다.
+
+
+# to be continue...#
