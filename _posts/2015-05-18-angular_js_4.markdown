@@ -77,9 +77,11 @@ $\{{item.price\}}
 이밖에 filter는 
 
 1. date - 
+
 ``
 {{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}}
 ``
+
 : 12/27/2013 @ 12:50AM
 2. uppercase & lowercase 
 ```
