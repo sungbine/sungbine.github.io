@@ -86,9 +86,7 @@ ${{item.price}}
 ```
 : OCTAGON GEM
 3. limitTo - 
-```
-{{'My Description' | limitTo:8}}
-```
+`{{'My Description' | limitTo:8}}`
 : My Descr
 4. orderBy - 
 ```
