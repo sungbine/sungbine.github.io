@@ -60,18 +60,18 @@ var items = [
 #Filter#
 이번에 배워볼 것은 Filter 입니다.
 
-"$100" 을 표현하기위해서는  `${{item.price}}` 처럼 표현식을 사용해야한다.
+"$100" 을 표현하기위해서는  ```${{item.price}}``` 처럼 표현식을 사용해야한다.
 그런데 "$100.00"을 표현하려면 어떻게 해야할까?
 이럴때 사용하는 것이 바로 filter이다. 
 
-`{{item.price | currency}}` 이렇게 '|'와 뒤에 filter명을 써주면 원하는 format으로 만들어 출력해준다.
+```{{item.price | currency}}``` 이렇게 '|'와 뒤에 filter명을 써주면 원하는 format으로 만들어 출력해준다.
 
 이밖에 filter는 
 
-1. date - `{{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}}` : 12/27/2013 @ 12:50AM
-2. uppercase & lowercase `{{'octagon gem' | uppercase}}` : OCTAGON GEM
-3. limitTo - `{{'My Description' | limitTo:8}}` : My Descr
-4. orderBy - `<li ng-repeat="product in store.products | orderBy:'-price'">` : price의 순서대로 정렬해서보여준다(- 가 붙으면 내림차순, 없으면 오름차순)
+1. date - ```{{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}}``` : 12/27/2013 @ 12:50AM
+2. uppercase & lowercase ```{{'octagon gem' | uppercase}}``` : OCTAGON GEM
+3. limitTo - ```{{'My Description' | limitTo:8}}``` : My Descr
+4. orderBy - ```<li ng-repeat="product in store.products | orderBy:'-price'">``` : price의 순서대로 정렬해서보여준다(- 가 붙으면 내림차순, 없으면 오름차순)
 
 
 가 존재한다. 이밖의 filter는 다음에 다시 정리해 보도록 하겠다.
