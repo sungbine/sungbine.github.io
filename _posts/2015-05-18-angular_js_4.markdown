@@ -4,7 +4,9 @@ title:  "AngularJS 공부하기 - 다양한 Directives & Filter"
 date:   2015-05-18 21:48:00
 categories: tech post
 ---
-
+ 
+ {{ noparse }}{{ /noparse }} 
+ 
 지난시간에는 컨트롤러의 데이터를 HTML 문서에서 보여줄 수있는 Expression에 대해 공부했습니다.
 또한 ng-show, ng-hide, ng-repeat와 같은 directive에 대해 공부했습니다.
 오늘은 더욱 다양한 directive와 filter에 대해 고부해 보도록 하겠습니다.
@@ -84,17 +86,23 @@ $\{{item.price\}}
 
 : 12/27/2013 @ 12:50AM
 2. uppercase & lowercase 
+
 ```
 {{'octagon gem' | uppercase}}
 ```
+
 : OCTAGON GEM
 3. limitTo - 
+
 `{{'My Description' | limitTo:8}}`
+
 : My Descr
 4. orderBy - 
-```
+
+``
 <li ng-repeat="product in store.products | orderBy:'-price'">
-``` 
+``
+
 : price의 순서대로 정렬해서보여준다(- 가 붙으면 내림차순, 없으면 오름차순)
 
 
