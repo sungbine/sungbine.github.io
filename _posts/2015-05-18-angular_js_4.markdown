@@ -5,7 +5,7 @@ date:   2015-05-18 21:48:00
 categories: tech post
 ---
  
- {{ noparse }}{{ /noparse }} 
+
  
 지난시간에는 컨트롤러의 데이터를 HTML 문서에서 보여줄 수있는 Expression에 대해 공부했습니다.
 또한 ng-show, ng-hide, ng-repeat와 같은 directive에 대해 공부했습니다.
@@ -46,11 +46,13 @@ var items = [
 ~~~
 
 와 같은 코드는 자주 보셨을 것입니다. 만약 여기에
+{{ noparse }}
 
 ~~~html
 <img src="{{items[0].images[0]}}"></img>
 ~~~
 
+{{ /noparse }}
 처럼 작성하면 동작하지 않습니다. 이럴때는
 
 ~~~
