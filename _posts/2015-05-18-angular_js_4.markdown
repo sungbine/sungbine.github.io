@@ -24,20 +24,7 @@ categories: tech post
 
 새롭게 추가된 directive는 ng-src 입니다.
 
-~~~
-var items = [
-	{ name: 'Dodecahedron Gem',
-	 price: 2.95,
-	description: '. . .',
-	images: [
-		{
-			full: 'dodecahedron-01-full.jpg',
-			thumb: 'dodecahedron-01-thumb.jpg'
-		},
-		{
-			full: "dodecahedron-02-full.jpg",
-...
-~~~
+{% gist sungbine/663f01abee49afb4d302 %}
 
 위처럼 만약 object에 이미지 주소가 들어있을때 쓰이는 directive가 바로 ng-src 입니다. 
 
