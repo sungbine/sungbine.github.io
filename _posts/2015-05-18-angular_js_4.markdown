@@ -28,24 +28,19 @@ categories: tech post
 
 위처럼 만약 object에 이미지 주소가 들어있을때 쓰이는 directive가 바로 ng-src 입니다. 
 
-~~~html
-<img src="~~~"></img>
-~~~
+{% gist sungbine/a608ae44bccec74ba493 %}
+
 
 와 같은 코드는 자주 보셨을 것입니다. 만약 여기에
-{{ noparse }}
-{{gogogogogogo}}
-{{ /noparse }}
-~~~html
-<img src="{{items[0].images[0]}}"></img>
-~~~
+
+
+
 
 
 처럼 작성하면 동작하지 않습니다. 이럴때는
 
-~~~
-<img ng-src="{{items[0].images[0]}}"></img>
-~~~ 
+{% gist sungbine/9a09f078ff3abb34c601 %}
+
 
 로 작성해주어야 합니다.
 
@@ -53,47 +48,20 @@ categories: tech post
 이번에 배워볼 것은 Filter 입니다.
 
 "$100" 을 표현하기위해서는  
-```
-$\{{item.price\}}
-``` 
+{% gist sungbine/04d118923a3c5e787352 %}
+
+
 처럼 표현식을 사용해야한다.
 그런데 "$100.00"을 표현하려면 어떻게 해야할까?
 이럴때 사용하는 것이 바로 filter이다. 
+{% gist sungbine/666e5f4e3f2f63e15656 %}
 
-```
-{{item.price | currency}}
-```
 
 이렇게 '|'와 뒤에 filter명을 써주면 원하는 format으로 만들어 출력해준다.
 
 이밖에 filter는 
 
-1. date - 
-
-``
-{{'1388123412323' | date:'MM/dd/yyyy @ h:mma'}}
-``
-
-: 12/27/2013 @ 12:50AM
-2. uppercase & lowercase 
-
-```
-{{'octagon gem' | uppercase}}
-```
-
-: OCTAGON GEM
-3. limitTo - 
-
-`{{'My Description' | limitTo:8}}`
-
-: My Descr
-4. orderBy - 
-
-``
-<li ng-repeat="product in store.products | orderBy:'-price'">
-``
-
-: price의 순서대로 정렬해서보여준다(- 가 붙으면 내림차순, 없으면 오름차순)
+{% gist sungbine/5ee996a66cbebbdc7436 %}
 
 
 가 존재한다. 이밖의 filter는 다음에 다시 정리해 보도록 하겠다.
