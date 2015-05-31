@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "AngularJS 공부하기 - Tab"
+date:   2015-05-31 11:23:00
+categories: tech post
+---
+오늘 공부할 내용은 TAB에 대해서 공부 해 보도록 하겠다.
+
+# TAB?
+메뉴가 여러개 존재하고 각 메뉴에 따라 다른 내용이 출력되길 원할 때 우리는 흔히 TAB 이라고 불리는 컴포넌트(?)를 사용한다.
+
+# AngularJS 에서 기본Tab 구현
+AngularJS에서는 expression을 이용해서 Tab을 편하게 개발할 수 있다.
+
+{% gist sungbine/4eeecaa53a1c1292d2f0 %}
+
+위와 같은 방법으로 구현을 하면  
+
+```ng-click="tab = 1"``` 
+
+이 부분에서 tab이라는 변수에 1을 할당해주는 것이 되고, {tab}} 이 표현식에 tab에 들어있는 숫자가 화면에 랜더링 된다.
+
+이런것이 가능한 이유는 AngularJs는 2-way Data Biding을 하기 때문이다. 이 부분은 다음에 자세히 알아보도록 하겠다.
+
+
+그렇다면 본격적으로 tab을 구현해 보자
+
+{% gist sungbine/1b73a12fbb6c81774b7e %}
+
+위처럼 html을 작성하면 ng-show directive에 의해 tab에 할당되는 값이 1,2,3으로 변함에 따라 ng-show의 expression조건이 변하게 되어 보이는 tab이 달라지게 된다.
+
+간단하게 tab을 구현할 수 있다.
+
+# 초기 Tab의 값 지정
+위의 코드를 실행해 보면 tab의 초기값이 없기 때문에 처음 페이지를 로드하게되면 아무런 페이지도 나타나지 않는다.
+
+이때 초기값을 지정해 줄 수있는 directive가 있다.
+ng-init 을 사용하게 되면 페이지가 로드 되면서 실행되는 expression을 지정 할 수 있다.
+
+```ng-init = "tab = 1"```
+
+위와같은 코드를 집어넣게 되면 현재 scope에 서 사용하는 tab에 초기값을 지정할 수있다.(scope에 유의 바란다)
+
+#현재 활성화된 tab에 클래스지정하기
+부트스트랩 css를 사용하게 되면 .active 클래스가 존재하는데 이 클래스를 현재 활성화된 tab에 지정 하고자 할때는 어떻게 하는지 알아 보자.
+
+기존의
+
+```<li> <a href ng-click="tab =1">First Tab</a></li>```
+
+를
+ 
+```<li ng-class="{ active:tab === 3}"> ```
+
+이렇게 ng-class directive를 쓰면 뒤의 expressiond을 판단해서 active 클래스를 추가할 수있다.
+
+여기까지 기본적인 tab구현 방법에 대해 알아 보았다.
+이번시간에는 ng-init, ng-class 두개의 directive가 더 등장하였다. 앞으로 추가되는 directive가 무엇이 있을지 더 궁금해진다.
+# to be continue...#
