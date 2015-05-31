@@ -1,0 +1,25 @@
+---
+layout: post
+title:  "AngularJS 공부하기 - 2way binding"
+date:   2015-05-31 12:35:00
+categories: tech post
+---
+
+
+이 내용은 아래의 문서를 번역한 내용임을 밝힙니다.
+
+[원본-https://docs.angularjs.org/guide/databinding](https://docs.angularjs.org/guide/databinding)
+
+# 1. Data Biniding
+Angular app에서 data-binding은 view와 model사이의 데이터 자동 동기화를 말한다. Angular의 data-binding구현 방법은 application의 single-source-truth(단일 데이터 소스) 정책을 따르도록 한다. view는 model의 투사일 뿐이다라는 말이다. 만약 model이 변하면 view역시 변할 수밖에 없다. 그 반대의 경우도 마찬가지 이다.
+
+# 2. 기존 Template의 Data Binding
+![](https://docs.angularjs.org/img/One_Way_Data_Binding.png)
+대부분의 template system 들은 오로지 한반향의로 data를 bind한다(template과 model을 병합해서 하나의 view를 만들어 내는방식이다). 병합이 이루어지고 난 이후에 model이나 template에 변화가 생기더라도 자동으로 view에 반영하질 못한다. 게다가 사용자가 view를 변화시키더라도 model값은 변하지 않는다. 이것은 개발자가 view와 model, model과 view의 순간적인 동기화를 위한 코드를 작성해야한다는 것을 의미한다.
+
+# 3. Angular Template의 Data Binding
+
+![](https://docs.angularjs.org/img/Two_Way_Data_Binding.png)
+Angular Template은 위의 경우와 다르게 동작한다. template(HTML, markup, directives)은 브라우저에 의해 compile된다. 이 컴파일 과정에서 live view를 생성한다. view에 어떤 변화가 나타나면 이것 역시 model에 반영된다. 또한 model이 변화면 view에도 전파가 이루어진다(변화한다). model은 이 application의 single-source-of-truth 이다. 프로그래머는 매우 간단하게 model을 프로그래밍 할 수있다. 이것은 view를 단순히 model의 투영체로 생각할수있게 한다.
+
+view가 단순히 model의 투영체이기 때문에, controller는 view와 완전하게 분리될 수있다. 그리고 view를 신경쓸 필요가 없다. 이 것은 controller가 view와 DOM/browser와 관련된 것들과 완전하게 분리됨을 의미하기 때문에 test를 하기에도 매우 용이하다.
