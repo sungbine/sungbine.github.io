@@ -1,0 +1,108 @@
+---
+layout: post
+title:  "AngularJS 공부하기 - Tab 컨트롤러로 분리하기"
+date:   2015-06-06 14:27:00
+categories: tech post
+---
+
+# 지난 시간 공부한 좋지 않은 코드
+지난 시간에 AngularJs를 통해 tab을 만드는 것을 공부했다. 이전의 코드가 기억 나는가?
+
+{% gist sungbine/8951ddcf8b7b35c54db6 %}
+
+이 코드는 단순한 탭을 구현한다. 그런데 html과 script가 혼합된 이런 코드는 가독성과 유지보수성 측면에서 매우 비 효율적이다. 지금은 코드가 짧지만 만약 복잡한 로직이 들어가게 된다던가 길어지게 되면 가독성이 떨어지게 될 것이다.
+이를 해결하기 위해 이번시간에는 이 코드에서 로직을 분리해 새로운 컨트롤러르르 만들어 볼 것이다.
+
+# Tab 컨트롤러 분리하기
+우선 새로운 컨트롤러를 추가해 보자
+
+`app.controller("TabController", function() { });`
+
+위처럼 'TabControoler'라는 이름의 기본 컨트 컨트롤러를 생성한다. 
+이 컨트롤러를 template에 등록하고 현재 template에 들어있는 로직을 controller의 function에 method의 형태로 정의 해야한다.
+
+## 초기값
+우선 `ng-init="tab=1"` 으로 구현했던 초기 페이지 지정을 컨트롤러로 구현해보겠다.
+
+```
+app.controller("TabController", function() { 
+	this.tab = 1;
+});
+```
+위처럼 `this.tab = 1;`을 이용해 초기값을 지정할 수있다.
+
+## 탭 클릭시 탭 번호 지정
+
+```
+<ul>
+  <li> <a href ng-click="tab = 1"> First tab </a> </li>
+  <li> <a href ng-click="tab = 2"> Second tab </a> </li>
+  <li> <a href ng-click="tab = 3"> Third tab </a> </li>
+  {{ tab }}
+</ul>
+```
+
+위의  코드에서 `ng-click="tab = 1"` 이 부분은 로직으로 `tab = 1`을 하나의 함수로 분리해 보자.
+`ng-click="setTab(1)"` 이렇게 변경 하고 controller에서 setTab(tabNum) 함수를 정의하면 효과적으로 텝 번호를 지정하는 로직을 관리할 수있다.
+
+```
+app.controller("TabController", function() { 
+	this.tab = 1;
+	this.setTab = function(tabNum) {
+		this.tab = tabNum;
+	};
+} );
+```
+
+이렇게 구현하면 로직을 성공적으로 분리할 수있다.
+
+## 탭 클릭 시 보이는 탭 변경
+
+```
+<div ng-show="tab === 1">
+  <h4> First tab </h4>
+  <p> AAAAAAAAAAAAAAA </p>
+</div>
+<div ng-show="tab === 2">
+  <h4> Second tab </h4>
+  <p> BBBBBBBBBBBBBBB </p>
+</div>
+<div ng-show="tab === 3">
+  <h4> Third tab </h4>
+  <p> CCCCCCCCCCCCCCC </p>
+</div>
+```
+위에서 `ng-show="tab ===1"`도 역시 코드에 비교 로직이 포함되어있다. 이것을 이전 방법처럼 컨트롤러의 method로 분리해 보겠다.
+
+
+```
+<div ng-show="isSelected(1)">
+  <h4> First tab </h4>
+  <p> AAAAAAAAAAAAAAA </p>
+</div>
+<div ng-show="isSelected(2)">
+  <h4> Second tab </h4>
+  <p> BBBBBBBBBBBBBBB </p>
+</div>
+<div ng-show="isSelected(3)">
+  <h4> Third tab </h4>
+  <p> CCCCCCCCCCCCCCC </p>
+</div>
+```
+
+이제 `isSelected(tabNum)` 라는 함쉬를 controller에 등록해 보자.
+
+```
+app.controller("TabController", function() { 
+	this.tab = 1;
+	this.setTab = function(tabNum) {
+		this.tab = tabNum;
+	};
+	this.isSelected = function(tabNum) {
+		return this.tab === tabNum;
+	};
+} );
+```
+
+이렇게 하면 로직을 모두 컨트롤러에 분리 할 수있다.
+# mvc 패턴을 지키면 개발의 효율성, 코드의 가독성과 유지/보수성이 증가함으로 꼭 이러한 정책을 잘 지켜야 한다.
