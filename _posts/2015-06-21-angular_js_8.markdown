@@ -1,0 +1,27 @@
+---
+layout: post
+title:  "AngularJS 공부하기 - Form model binding"
+date:   2015-06-21 14:27:00
+categories: tech post
+---
+
+# Form model binding
+
+이전시간에 AngularJs는 Double Binding을 이용해 model과 view의 동기화한다고 공부했다. 그래서 model이 수정되면 view도 수정되고, view가 수정되면 model이 수정된다고 했다.
+그렇다면 view가 수정되었을때 어떻게 model에 결과를 반영할 수있을까? 사용자의 입력을 받을 수 있는 form 태그를 이용해서 model을 수정할 수 있다.
+
+{% gist sungbine/4ca108e12bee53b5ba5c %}
+
+위와 같은 코드가 있다면, model에 어떻게 binding 할까
+
+###새롭게 등장하는 ng-model directives를 이용하면 할 수있다.
+
+{% gist sungbine/6357bfa9b463383c94a0 %}
+
+위처럼 ng-model을 각 요소에 지정하면 지정된 model의 변수로 select, checkbox, radio, textarea 와 같은 다양한 사용자 input들이 model로 binding된다.
+
+```
+<input ng-model="item.isAgree" type="checkbox" />
+```
+
+와 같은 ng-model 처럼 사용할 수있고, checkbox 의 경우 이 item.isAgree라는 property를 true/false로 셋하게 된다.
