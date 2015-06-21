@@ -25,3 +25,7 @@ categories: tech post
 ```
 
 와 같은 ng-model 처럼 사용할 수있고, checkbox 의 경우 이 item.isAgree라는 property를 true/false로 셋하게 된다.
+
+이번에는 짧게 마무리하고 다음시간에는 ng-submit을 이용해서 controller에 연결된 함수를호출 할 수 있는 방법에 대해 알아 보겠다.
+
+#To be continue..
