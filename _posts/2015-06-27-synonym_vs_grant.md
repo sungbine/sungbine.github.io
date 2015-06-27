@@ -14,7 +14,7 @@ categories: tech post
 
 예를 들어 A라는 계정은 모든 DML을 사용할 수 있다고 하자. 그런데 필요에 의해 A계정의 TableA 라는 테이블 SELECT만 가능한 B 계정이 필요해 졌다. 
 
-이럴 때 사용하는 명령어가 바로 ***==GRANT==*** 이다.<br>
+이럴 때 사용하는 명령어가 바로 ***<higlight start>GRANT<higlight end>*** 이다.<br>
 GRANT는 계정에 권한을 부여 할 수있는데, 이를 사용할 수 있는 계정은 그 객체(예를 들어 TABLE)의 OWNER만이 부여 할 수있다.<br>
 
 위의 예제에서는 A라는 계정으로 B 계정에 TableA에 GRANT를 설정함으로서 B가 TableA를 SELECT 하도록 할 수있다
