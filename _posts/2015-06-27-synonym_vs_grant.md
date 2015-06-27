@@ -19,7 +19,9 @@ GRANT는 계정에 권한을 부여 할 수있는데, 이를 사용할 수 있�
 
 위의 예제에서는 A라는 계정으로 B 계정에 TableA에 GRANT를 설정함으로서 B가 TableA를 SELECT 하도록 할 수있다
 
-``` GRANT select on A.TableA to B ```
+``` 
+GRANT select on A.TableA to B 
+```
 
 라고 하면 B는 
 
@@ -34,11 +36,15 @@ SELECT * FROM A.TableA
 
 Synonym은 객체의 OWNER가 아닌 권한을 부여 받은 계정에서 적용 할 수있다.*(해당 계정은 Synonym 생성 권한이 필요하다. 없다면 sys계정을 통해 부여할 수있다.)*
 
-``` CREATE synonym TableA for A.TableA ```
+```
+CREATE synonym TableA for A.TableA
+```
 
 라고 작성하면 B 계정에서도
 
-``` SELECT * FROM TableA ````
+``` 
+SELECT * FROM TableA 
+```
 
 의 쿼리가 정상적으로 동작하게 된다.
 
@@ -49,14 +55,22 @@ Synonym은 객체의 OWNER가 아닌 권한을 부여 받은 계정에서 적용
 
 #Tip. Synonym 제어 쿼리
 ## synonym 확인
-``` SELECT * FROM user_sysnonyms ``` - 현재 계정의 synonym만 확인
-``` SELECT * FROM all_sysnonyms ``` - 모든 계정의 synonym을 확인
+``` 
+SELECT * FROM user_sysnonyms 
+-- 현재 계정의 synonym만 확인
+```
+```
+ SELECT * FROM all_sysnonyms  
+ -- 모든 계정의 synonym을 확인
+```
 
 위의 두가지 쿼리를 통해 synonym을 확인 할 수있다.
 
 ## synonym 삭제
 
-``` DROP synonym TableA ```
+``` 
+DROP synonym TableA 
+```
 
 라고 하면 삭제된다.
 
